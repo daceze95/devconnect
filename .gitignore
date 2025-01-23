@@ -1,0 +1,26 @@
+# Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Virtual environment
+.venv/
+virtualenv/
+
+# Test directories
+tests/
+
+# Flask-specific
+instance/
+
+# General files
+.DS_Store
+Thumbs.db
+
+# Sensitive data
+*.env
+*.sqlite 
+# Add other database files as needed
+
+# Logs
+*.log
