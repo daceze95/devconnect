@@ -17,6 +17,9 @@ instance/
 .DS_Store
 Thumbs.db
 
+# node modules
+node_modules/
+
 # Sensitive data
 *.env
 *.sqlite 

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devconnect</title>
-</head>
-<body>
-    <h1>Hello Flask!</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %} 
+<title>home page</title>
+{% endblock %}
+
+
+{% block content %} 
+<h1 class="font-bold text-lg text-green-500">Home page</h1>
+{% endblock %}
