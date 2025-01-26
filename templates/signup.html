@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %} home page {% endblock %}
+
+{% block content %}
+    <div class="w-full flex justify-center mt-3 py-2">
+        <form method="POST" action="{{ url_for('signup') }}" class="rounded-lg p-4 gap-4 flex flex-col w-1/2">
+            <h2 class="font-bold text-center text-2xl"> Register</h2>
+            <div class="flex flex-col">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="" class="rounded-lg border outline-none w-full p-2 h-10" required/>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="password">Password:</label>
+
+                <div class="relative w-full overflow-hidden">
+                    <input type="password" name="password" id="password" class="rounded-lg border outline-none w-full p-2 h-10" required/>
+                    <span class="text-xs flex items-center absolute right-0 bottom-0 top-0 p-2 cursor-pointer" id="toggle_display" >Show</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="c_password">Confirm Password:</label>
+
+                <div class="relative w-full overflow-hidden">
+                    <input type="password" name="c_password" id="c_password" class="rounded-lg border outline-none w-full p-2 h-10" required/>
+                    <span class="text-xs flex items-center absolute right-0 bottom-0 top-0 p-2 cursor-pointer" id="toggle_display2">Show</span>
+                </div>
+                <span class="text-xs text-red-500">{{ res }}</span>
+            </div>
+
+            <div class="flex flex-col">
+                <input type="submit" value="Register" class="rounded-lg bg-red-500 text-white w-full p-2 h-10 cursor-pointer">
+                <p class="text-sm text-center">Already have an account? <a class="text-blue-500 underline cursor-pointer" href="{{ url_for('login') }}">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (){
+            const password = document.getElementById("password")
+            const c_password = document.getElementById("c_password")
+            const toggle_display = document.getElementById("toggle_display")
+            const toggle_display2 = document.getElementById("toggle_display2")
+    
+            // if (c_password.value !== password.value){
+            //     c_password.style.borderColor = 'red'
+            // }
+    
+            function toggle_method() {
+                let inputField = this.id === "toggle_display" ? password : c_password;
+                if(inputField.type == "password"){
+                    inputField.setAttribute("type", "text")
+                    this.textContent = "Hide"
+                } else {
+                    inputField.setAttribute("type", "password")
+                    this.textContent = "Show"
+                }
+            }
+    
+            toggle_display.addEventListener('click', toggle_method)
+            toggle_display2.addEventListener('click', toggle_method)
+    
+        })
+    </script>
+{%endblock%}

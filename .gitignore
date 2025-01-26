@@ -20,6 +20,9 @@ Thumbs.db
 # node modules
 node_modules/
 
+# generate Css file
+output.css
+
 # Sensitive data
 *.env
 *.sqlite 

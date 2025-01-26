@@ -7,6 +7,44 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
 <body>
-    {% block content %}{% endblock %}
+    <div class="flex flex-col w-full h-screen">
+        <div class="flex items-center bg-slate-800 h-[3.125rem]">
+            <ul class="flex items-center p-2 w-full">
+                <li class="font-bold text-lg text-white mr-auto">DevConnect</li>
+                <div class="flex gap-2">
+                    <li class="text-white cursor-pointer"><a href="{{ url_for("index") }}" class="w-full h-full px-2">Home</a></li>
+                    <li class="text-white cursor-pointer"><a href="{{ url_for("about") }}" class="w-full h-full px-2">About</a></li>
+                    <li class="text-white cursor-pointer"><a href="{{ url_for("contact") }}" class="w-full h-full px-2">Contact Us</a></li>
+                </div>
+            </ul>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <div class="place-self-center relative flex items-center w-1/4 max-w-2/4 text-white text-sm rounded-sm bg-orange-300 p-2 min-h-[3.125rem] overflow-none" id="flash">
+                        <span class="absolute top-0 right-0 cursor-pointer p-2 mt-2 mr-2" onclick="closeFlash(this)">&times;</span>
+                        <p>{{ msg }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        function closeFlash(element) {
+            element.parentElement.style.display = 'none';
+        }
+
+        /* document.addEventListener("DOMContentLoaded", function (){
+            const flashContainer = document.getElementById("flash");
+            if (flashContainer) {
+                setTimeout(() => {
+                flashContainer.style.display = 'none';
+                }, 5000); // Hide after 5 seconds
+            }
+})*/
+    </script>
 </body>
 </html>

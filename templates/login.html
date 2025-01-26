@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} home page {% endblock %}
+
+{% block content %}
+    <div class="w-full flex justify-center mt-3 py-2">
+        <form action="" class="rounded-lg p-4 gap-4 flex flex-col w-1/2">
+            <h2 class="font-bold text-center text-2xl">Login</h2>
+            <div class="flex flex-col box-">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="" class="rounded-lg border outline-none w-full p-2 h-10" required/>
+            </div>
+            <div class="flex flex-col">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="" class="rounded-lg border outline-none w-full p-2 h-10" required/>
+            </div>
+            <div class="flex flex-col">
+                <input type="submit" value="Login" class="rounded-lg bg-red-500 text-white w-full p-2 h-10 cursor-pointer">
+                <p class="text-sm text-cente">Don't have an account? <a class="text-blue-500 underline cursor-pointer" href="{{ url_for('signup') }}">Signup</a></p>
+            </div>
+        </form>
+    </div>
+{%endblock%}
